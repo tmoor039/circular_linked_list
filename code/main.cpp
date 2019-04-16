@@ -1,10 +1,7 @@
-//
+// Author: tmoore - edited 15/4/19
 //  main.cpp
 //  Josephus
 //
-//  Created by TJ Moore on 11/12/12.
-//  Copyright (c) 2012 TJ Moore. All rights reserved.
-
 
 #include<iostream>
 #include "File.h"
@@ -19,13 +16,15 @@ int main()
 {
     //declare variables
     int  count = 0, number = 0;
-    string name,fileName;
+    string name,fileName; //assuing string was declared in File.h.. good or bad practice? 
     
     //declare new NameLis Object
     NameList list;
     
-    ifstream infile;
+	//declare a file stream object		
+    ifstream infile; 
     
+	// input the name of the file  - No input validation here
     cout<<"Enter the name of the file with the names to run the Josephus Program: ";
     cin>>fileName;
     cout<<endl;

@@ -1,2 +1,4 @@
-# circular_linked_list
-Demo of a circular linked list with a solution to the Josephus problem 
+#circular_linked_list
+Demo of a circular linked list with a solution to the Josephus problem
+
+#TODO: Needs a makefile. Also needs input validation on the input file prompt
