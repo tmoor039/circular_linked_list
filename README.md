@@ -1,2 +1,5 @@
 # circular_linked_list
-Demo of a circular linked list with a solution to the Josephus problem 
+Demo of a circular linked list with a solution to the Josephus problem
+
+#TODO: Needs a makefile 
+ 
