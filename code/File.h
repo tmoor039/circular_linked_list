@@ -1,10 +1,8 @@
 //
 //  File.h
 //  Josephus
-//
 //  Created by TJ Moore on 11/12/12.
-//  Copyright (c) 2012 TJ Moore. All rights reserved.
-//
+//  Reviewed 4/24/19
 
 #ifndef NAMELIST_H
 #define NAMELIST_H
