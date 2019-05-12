@@ -10,6 +10,11 @@
 #include <string>
 using namespace std;
 
+
+// add a function that converts the total number of people in the list, converts it to binary and then does a bitshift for the upper most bit to the first most bit to determine winner 
+
+
+
 class NameList
 {
 private:
