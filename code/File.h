@@ -1,16 +1,19 @@
 //
 //  File.h
 //  Josephus
-//
 //  Created by TJ Moore on 11/12/12.
-//  Copyright (c) 2012 TJ Moore. All rights reserved.
-//
+//  Reviewed 4/24/19
 
 #ifndef NAMELIST_H
 #define NAMELIST_H
 
 #include <string>
 using namespace std;
+
+
+// add a function that converts the total number of people in the list, converts it to binary and then does a bitshift for the upper most bit to the first most bit to determine winner 
+
+
 
 class NameList
 {

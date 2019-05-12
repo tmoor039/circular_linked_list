@@ -190,7 +190,7 @@ int NameList::getsize() const {
 }
 
 
-
+// look to modify josephus fuction to get to the winner without traveseing list 
 void NameList::JosephusFunction(string n, int c)
 {
     //make a pointer to move trhough the list

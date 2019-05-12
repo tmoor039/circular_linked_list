@@ -40,7 +40,7 @@ int main()
 		exit(EXIT_FAILURE);
 	}
     
-    
+// again... no input validation... should have this argument as a command line argument as well     
     //Read in first number
     cout<<"\n\nReading in the first line of the file which should be a number.....\n\n";
     infile>>count;
@@ -51,12 +51,12 @@ int main()
     {
         list.appendNode(name);
         
-        number ++;
+        number ++; // size of the list 
     }
     
     if (number == list.getsize())
     {
-        list.deleteNode("");
+        list.deleteNode(""); // what is this ? 
         cout<<"The list have been succefully created.\n";
     }
    
@@ -66,13 +66,13 @@ int main()
     list.displayList();
     
     
-    infile.close();
+    infile.close(); // could also just rewing position here... is closing and opening a heavy operation? 
     
-    infile.open("Josephus.txt",ios::in);
+    infile.open("Josephus.txt",ios::in); // why do you ask for file name if we just hard code file name here? 
     
     infile>>count;
     
-    //create an array with all the names and find the shortest name
+    //create an array with all the names and find the shortest namee
     
     string *p = NULL;
     
@@ -87,7 +87,7 @@ int main()
     infile.close();
     
     //determine the person  with the shortest name. assuming the files first line was discarded.
-    
+    d
     string shortestname = *(p+1);
    
     string x = "";
