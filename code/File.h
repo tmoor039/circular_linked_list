@@ -47,9 +47,25 @@ public:
     
     void displayList() const;
     bool isEmpty() const; // returns true if the list is empty
-    int getsize() const; // returns the numberOfNodes in the list
-    
+    int getsize() const; // returns the numberOfNodes in the list    
     void JosephusFunction( string, int);
+
+
+
+
+// version 2 solution
+
+
+// add a function that turns getsize into a binary char 
+// this function should take in the result from getSize and return the binary number in a char variable 
+// this function should also perform one left bitshift to return the winning number reflecting the josephus problem 
+unsigned char getJosephusByte(int size);
+
+
+
+
+
+
     
 };
 #endif
