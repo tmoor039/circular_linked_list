@@ -26,14 +26,14 @@ private:
     };
     
     ListNode *head;            // List head pointer: pointing to the 1st node
-    ListNode *end;             // List end pointer: pointing to the last node
+    ListNode *tail;             // List tail pointer: pointing to the last node
     int numberOfNodes;         // the number of nodes in the list
     
 public:
     // Constructor
     NameList() {
         head = NULL;
-        end = NULL;
+        tail = NULL;
         numberOfNodes = 0;
     }
     
@@ -42,7 +42,7 @@ public:
     
     // Linked list operations
     // for the hw question: Josephus problem, we do not need the insertNode() function. Therefore, I deleted it.
-    void appendNode(string);
+    void apptailNode(string);
     void deleteNode(string);
     
     void displayList() const;
@@ -68,5 +68,5 @@ unsigned char getJosephusByte(int size);
 
     
 };
-#endif
+#tailif
 

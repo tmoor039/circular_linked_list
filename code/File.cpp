@@ -3,18 +3,18 @@
 //  Josephus
 //  Reviewed 11 Apr 19
 //  Created by TJ Moore on 11/12/12.
-//  Copyright (c) 2012 TJ Moore. All rights reserved.
-// #TODO do the impkement delete function again with a different algorithm 
+//  Copyright (c) Rogue_ESP. All rights reserved.
+// # TODO do the impkement delete function again with a different algorithm 
 // # TODO - improve print list functiom .. recursively 
 // # TODO: The head and tail pointers seem unorganized -> How can it be better structured? 13 Apr 19
 
 #include <iostream>  // For cout  and NULL
-#include "File.h"
+#include "File.h"  // File header that includes defined linked list node
 using namespace std;
 
 //**************************************************
 // appendNode appends a node containing the        *
-// name parameter pased into its name member, to the end of the list.   *
+// name parameter pased into its name member, to the tail of the list.   *
 //**************************************************
 
 void NameList::appendNode(string name)
@@ -28,18 +28,18 @@ void NameList::appendNode(string name)
     
     // If there are no nodes in the list
     // make newNode the first node and the last node.
-    // and make the end->next points to head, so that it is a circle.
+    // and make the tail->next points to head, so that it is a circle.
     if (!head) {
         head = newNode;
-        end = newNode;
-        end->next = head;
+        tail = newNode;
+        tail->next = head;
     }
-    else  // Otherwise, insert newNode at end and adjust end pointer properly.
+    else  // Otherwise, insert newNode at tail and adjust tail pointer properly.
     {
         // Insert newNode as the last node.
-        end->next = newNode;
+        tail->next = newNode;
         newNode->next = head;
-        end = newNode; // set end point to the last node
+        tail = newNode; // set tail point to the last node
     }
     numberOfNodes++; // increment the number of nodes by 1 after appending the new node to the list
 }
@@ -57,10 +57,10 @@ void NameList::displayList() const
     // Position nodePtr at the head of the list.
     nodePtr = head;
     
-    // While nodePtr is not equal to the end node, traverse
+    // While nodePtr is not equal to the tail node, traverse
     // the list.
     cout << endl;
-    while (nodePtr != end)
+    while (nodePtr != tail)
     {
         // Display the name in this node.
         cout << nodePtr->name << endl;
@@ -68,7 +68,7 @@ void NameList::displayList() const
         // Move to the next node.
         nodePtr = nodePtr->next;
     }
-    // now nodePtr is equal to end, display the data of the last node
+    // now nodePtr is equal to tail, display the data of the last node
     cout << nodePtr->name << endl;
     cout << endl;
     
@@ -89,14 +89,14 @@ void NameList::deleteNode(string name)
     // If the list is empty, do nothing.
     if (!head) {
         cout <<endl <<  "the list is empty."<<endl;
-    } else if (head == end) { // if the list has only one node
+    } else if (head == tail) { // if the list has only one node
         // Determine if the only node is the one to be deleted.
         if (head->name == name) {
             cout <<endl << head->name << " is deleted from the list."<<endl;
             numberOfNodes--;
             delete head;
             head = NULL;
-            end = NULL;
+            tail = NULL;
         } else { // the name is not in the list
             cout <<endl << name <<" is not in the list."<<endl;
         }
@@ -106,14 +106,14 @@ void NameList::deleteNode(string name)
         
         // Skip all nodes whose name member is
         // not equal to name.
-        while (nodePtr != end && nodePtr->name != name) {
+        while (nodePtr != tail && nodePtr->name != name) {
             previousNode = nodePtr;
             nodePtr = nodePtr->next;
         }
-        // If nodePtr is not at the end of the list,
+        // If nodePtr is not at the tail of the list,
         // link the previous node to the node after
         // nodePtr, then delete nodePtr.
-        if (nodePtr != end) { // nodePtr->name must be equal to name
+        if (nodePtr != tail) { // nodePtr->name must be equal to name
             cout <<endl << nodePtr->name << " is deleted from the list."<<endl;
             numberOfNodes--;
             if ( previousNode == NULL) {
@@ -121,24 +121,24 @@ void NameList::deleteNode(string name)
                 // it means the head is the one to be deleted.
                 delete head;
                 head = nodePtr->next;
-                end->next = head;
+                tail->next = head;
             } else {
                 previousNode->next = nodePtr->next;
                 delete nodePtr;
             }
         } else {  // nodePtr is pointing to the last node
             // check whether the last node is the one to be deleted
-            if (end->name == name) {
-                cout <<endl << end->name << " is deleted from the list."<<endl;
+            if (tail->name == name) {
+                cout <<endl << tail->name << " is deleted from the list."<<endl;
                 numberOfNodes--;
-                delete end;
-                end = previousNode;
-                end->next = head;
+                delete tail;
+                tail = previousNode;
+                tail->next = head;
             } else {
                 cout <<endl << name << " is not in the list."<<endl;
             }
         }
-    } // end of else // the list has at least two nodes
+    } // tail of else // the list has at least two nodes
 }
 
 //**************************************************
@@ -154,8 +154,8 @@ NameList::~NameList()
     // Position nodePtr at the head of the list.
     nodePtr = head;
     
-    // While nodePtr is not at the end of the list...
-    while (nodePtr != end)
+    // While nodePtr is not at the tail of the list...
+    while (nodePtr != tail)
     {
         // Save a pointer to the next node.
         nextNode = nodePtr->next;
@@ -166,10 +166,10 @@ NameList::~NameList()
         // Position nodePtr at the next node.
         nodePtr = nextNode;
     }
-    // now nodePtr is pointing to end (the last node)
+    // now nodePtr is pointing to tail (the last node)
     delete nodePtr;
     head = NULL;
-    end = NULL;
+    tail = NULL;
     numberOfNodes = 0;
 }
 
