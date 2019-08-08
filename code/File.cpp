@@ -1,10 +1,9 @@
-//
 //  File.cpp
 //  Josephus
-//  Reviewed 11 Apr 19
-//  Created by TJ Moore on 11/12/12.
+//  Created by Rogue_ESP on 11/12/12.
+//  Reviewed 11 Apr 19 - Updated 8/7/19
 //  Copyright (c) Rogue_ESP. All rights reserved.
-// # TODO do the impkement delete function again with a different algorithm 
+// # TODO do the impkement delete function again with a different algorithm
 // # TODO - improve print list functiom .. recursively 
 // # TODO: The head and tail pointers seem unorganized -> How can it be better structured? 13 Apr 19
 
@@ -19,35 +18,36 @@ using namespace std;
 
 void NameList::appendNode(string name)
 {
-    ListNode *newNode;  // To point to a new node
+    ListNode *newNode;  // Declare a pointer to a new node
     
-    // Allocate a new node and store name there.
+    // Allocate a new node and store name there
     newNode = new ListNode;
     newNode->name = name;
-    newNode->next = NULL;
+    newNode->next = NULL; // function appends node to the end of the list by default
     
     // If there are no nodes in the list
     // make newNode the first node and the last node.
-    // and make the tail->next points to head, so that it is a circle.
-    if (!head) {
+    // and make the tail->next points to head, so that it is a circlular list.
+    if (!head) // Would head == NULL have similar result? {
         head = newNode;
         tail = newNode;
         tail->next = head;
     }
-    else  // Otherwise, insert newNode at tail and adjust tail pointer properly.
+    else  // Otherwise, insert newNode at tail and make tail point to the new node
     {
         // Insert newNode as the last node.
         tail->next = newNode;
-        newNode->next = head;
+        newNode->next = head; // set the newest tail node next pointer to the head of the list
         tail = newNode; // set tail point to the last node
     }
     numberOfNodes++; // increment the number of nodes by 1 after appending the new node to the list
 }
 
 //**************************************************
-// displayList shows the name                     *
+// displayList shows the name                      *
 // stored in each node of the linked list          *
 // pointed to by head.                             *
+// TODO: Can we make this print loop recursive?
 //**************************************************
 
 void NameList::displayList() const
@@ -246,6 +246,16 @@ void NameList::JosephusFunction(string n, int c)
     cout<<"\n\nThe person that gets to take the horse home is : "<<p->name<<endl<<endl;
         
         }
+
+int NameList::binaryWinnerFunction(int size)
+{
+    // Remaining functionS
+    
+    return 0;
+}
+
+
+
    
 
 

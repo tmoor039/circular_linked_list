@@ -1,19 +1,13 @@
-//
 //  File.h
 //  Josephus
-//  Created by TJ Moore on 11/12/12.
-//  Reviewed 4/24/19
+//  Created by Rogue_ESP on 11/12/12.
+//  Reviewed 4/24/19 - Updated 8/7/19
 
 #ifndef NAMELIST_H
 #define NAMELIST_H
 
 #include <string>
 using namespace std;
-
-
-// add a function that converts the total number of people in the list, converts it to binary and then does a bitshift for the upper most bit to the first most bit to determine winner 
-
-
 
 class NameList
 {
@@ -41,32 +35,14 @@ public:
     ~NameList();
     
     // Linked list operations
-    // for the hw question: Josephus problem, we do not need the insertNode() function. Therefore, I deleted it.
-    void apptailNode(string);
-    void deleteNode(string);
-    
-    void displayList() const;
+    void appendNode(string); // Adds to the end of the list
+    void deleteNode(string); // Deletes a node from the list
+    void displayList() const; // Prints the string list
     bool isEmpty() const; // returns true if the list is empty
-    int getsize() const; // returns the numberOfNodes in the list    
-    void JosephusFunction( string, int);
-
-
-
-
-// version 2 solution
-
-
-// add a function that turns getsize into a binary char 
-// this function should take in the result from getSize and return the binary number in a char variable 
-// this function should also perform one left bitshift to return the winning number reflecting the josephus problem 
-unsigned char getJosephusByte(int size);
-
-
-
-
-
-
+    int getsize() const; // returns the numberOfNodes variable in the list - representing size
+    void JosephusFunction(string, int); // Main function of operations
+    int binaryWinnerFunction(int); // returns winner based on total number on the list (NEW)
     
 };
-#tailif
+#endif
 
