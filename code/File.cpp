@@ -249,7 +249,15 @@ void NameList::JosephusFunction(string n, int c)
 
 int NameList::binaryWinnerFunction(int size)
 {
-    // Remaining functionS
+    // Remaining function
+    size = this.numberOfNodes;
+    
+    // convert the size to binary
+    
+    
+    //perform a bitwize shit to the left
+    
+    //return the number as an int with the winning position
     
     return 0;
 }
