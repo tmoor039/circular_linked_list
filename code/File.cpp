@@ -254,11 +254,11 @@ int NameList::binaryWinnerFunction(int size)
     
     // convert the size to binary
     
-    
     //perform a bitwize shit to the left
     
     //return the number as an int with the winning position
     
+    //number will be used in main function to dictate position of linked list that is winner
     return 0;
 }
 
